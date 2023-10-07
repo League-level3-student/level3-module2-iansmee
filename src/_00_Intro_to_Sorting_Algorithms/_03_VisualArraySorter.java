@@ -41,6 +41,14 @@ public class _03_VisualArraySorter extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 600;
     int [] arr;
+    
+    public void restart() {
+    	 arr = new int[50];
+         for (int i = 0; i < arr.length; i++) {
+ 			arr[i] = (int)random(HEIGHT);
+ 			noStroke();
+ 		}
+    }
 
     @Override
     public void settings() {
@@ -50,21 +58,20 @@ public class _03_VisualArraySorter extends PApplet {
 
     @Override
     public void setup() {
-        arr = new int[50];
-        for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int)random(HEIGHT);
-			noStroke();
-		}
+        restart();
     }
 
     @Override
     public void draw() {
-        background(200,200,200);
+        background(256,0,256);
         fill(100,200,100);
         for (int i = 0; i < arr.length; i++) {
 			rect(i*(WIDTH/arr.length),HEIGHT, (WIDTH/arr.length), -arr[i]);
 		}
         stepSort(arr);
+        if(mousePressed == true) {
+        	restart();
+        }
         
     }
 
