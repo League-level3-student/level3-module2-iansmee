@@ -44,12 +44,15 @@ public class ThanosSorter extends Sorter {
 		Random ran = new Random();
 		int saved = 0;
 		int start = 0;
-		int end = array.length -1;
+		int end = array.length;
+		
 		while (isSorted == false) {
+			int mid = (start + end)/2;
 			isSorted = true;
-			for (int i = start; i < end; i++) {
-				if (array[i] > array[i + 1]) {
+			for (int i = start; i < end-1; i++) {
+				if (array[i] > array[i +1]) {
 					isSorted = false;
+					
 				}
 			}
 			if (isSorted == true) {
@@ -57,24 +60,26 @@ public class ThanosSorter extends Sorter {
 			} else {
 				saved = ran.nextInt(2);
 				if (saved == 0) {
-					for (int i = start; i < end/2; i++) {
+					for (int i = start; i < mid; i++) {
 						array[i] = 0;
 						display.updateDisplay();
 					}
-					start = end/2;
-					end = end/2 + end/4;
+					start = mid;
+					
+					
 				}
 				else if(saved == 1) {
-					start = end/2;
-					for (int i = start; i < end; i++) {
+					
+					for (int i = mid; i < end; i++) {
 						array[i] = 0;
 						display.updateDisplay();
 					}
-					start = start + end/2;
-					end = end/2;
+					
+					end = mid;
 					
 				}
 			}
+			display.updateDisplay();
 		}
 	}
 }

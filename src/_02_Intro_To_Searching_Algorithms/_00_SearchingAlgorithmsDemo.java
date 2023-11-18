@@ -37,7 +37,7 @@ public class _00_SearchingAlgorithmsDemo {
         /*
          * Implementation of Linear Search on array
          */
-        int targetValue = 12;
+        int targetValue = 25;
         int indexOfValue = -1;
         for( int i = 0; i < intArr.length; i++ ) {
             if( intArr[i] == targetValue ) {
