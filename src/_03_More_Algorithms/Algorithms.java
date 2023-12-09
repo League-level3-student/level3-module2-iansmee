@@ -129,7 +129,7 @@ public class Algorithms {
 		while(isSorted == false) {
 			isSorted = true;
 			for (int i = 0; i < words.size()-1; i++) {
-				if(words.get(i).compareTo(words.get(i+1))<0) {
+				if(words.get(i).compareTo(words.get(i+1))>0) {
 					isSorted = false;
 					String placeholder = words.get(i);
 					words.set(i, words.get(i+1));
